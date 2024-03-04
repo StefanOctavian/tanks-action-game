@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "EGC",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Users/ASUS/Desktop/Stefan/Facultate/Anul III/EGC/tanks/**",
+                "C:/Users/ASUS/Downloads/gfx-framework-master/src"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\ProgramData\\chocolatey\\bin\\gcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "windows-gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}

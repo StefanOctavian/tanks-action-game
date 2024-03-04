@@ -1,0 +1,24 @@
+Notă: Aici o sa adaug chestii pe care le-am adăugat, eliminat sau modificat în mini 
+game engine-ul meu de la versiunea 2D din tema 1 la cea 3D din tema 2.
+
+- Schimbari la API-ul protected ControlledScene:
+    * Eliminat transparentGameObjects. In versiunea 2D, tot ce aveam nevoie de fapt
+    era alpha TESTING, nu BLENDING, dar nu am gasit asta la timp si am implementat o
+    varianta foarte naiva de Painter's Algorithm. Pentru a face alpha blending corect
+    in 3D ar trebui sa fac depth sorting, dar este complet nenecesar in cadru temei si
+    costisitor ca performanta.
+    * gameObjects acum nu mai este ierarhic, ci plat. Toate obiectele, inclusiv copiii
+    trebuie sa fie adaugate in lista de obiecte a scenei. Obiectele nu mai sunt randate
+    recursiv recalcand matricea de modelare in fiecare frame, ci este folosita matricea
+    objectToWorldMatrix a obiectului, care este recalculata doar cand obiectul isi
+    schimba pozitia, rotatia sau scalarea. Actualizarea matricei se face recursiv 
+    pe copii.
+
+- Schimbari la API-ul GameObject:
+    * Eliminat onPositionChange. Implementarea de la tema 1 era hacky si era folosita
+    in principal pentru detectia coliziunilor, singura exceptie fiind la detectia
+    ajungerii unui hexagon la finalul randului. Pentru detectia coliziunilor, vezi
+    OnCollision.
+    * Adaugat metoda virtuala OnCollision. Astfel, pentru a adauga un callback pentru
+    coliziuni, trebuie suprascrisa aceasta metoda intr-o clasa derivata din GameObject.
+    * Adaugat metodele Translate, Rotate si Scale pentru completitudine.
